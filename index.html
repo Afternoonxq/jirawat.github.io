@@ -1,109 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Jirawat</title>
-    <link rel="stylesheet" href="style.css">
+    <title>อิ่มมี ชาบู บุฟเฟต์</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
-        <nav class="navbar">
-            <div class="logo">Profile</div>
-            <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">อิ่มมี</a>
+                <ul class="nav-links">
+                    <li><a href="#">หน้าแรก</a></li>
+                    <li><a href="#">เกี่ยวกับเรา</a></li>
+                    <li><a href="#">เมนู</a></li>
+                    <li><a href="#">รีวิว</a></li>
+                    <li><a href="#">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="about" class="section">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>อิ่มไม่อั้น ไม่จำกัดเวลา</h1>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu">
         <div class="container">
-            <div class="profile">
-                <div class="profile-image">
-                    <img src="pic/pho.jpg" alt="Profile Picture">
+            <h2>เมนูชุดกลับบ้านอิ่มมี</h2>
+            <div class="menu-grid">
+                <!-- Menu Item -->
+                <div class="menu-item">
+                    <img src="images/set1.jpg" alt="ชุดหมูใหญ่">
+                    <h3>ชุดหมูใหญ่</h3>
+                    <p>399 บาท</p>
                 </div>
-                <div class="profile-info">
-                    <h1>จิรวัฒน์ วงศ์วัชรอำพน</h1>
-                    <h3>IT.5101 เลขที่ 30</h3>
+                <div class="menu-item">
+                    <img src="images/set2.jpg" alt="ชุดหมูเล็ก">
+                    <h3>ชุดหมูเล็ก</h3>
+                    <p>219 บาท</p>
+                </div>
+                <div class="menu-item">
+                    <img src="images/set3.jpg" alt="ชุดเนื้อใหญ่">
+                    <h3>ชุดเนื้อใหญ่</h3>
+                    <p>419 บาท</p>
+                </div>
+                <!-- More items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2>รีวิวจากลูกค้า</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>"อร่อยมาก บริการดีเยี่ยม"</p>
+                    <h4>- ลูกค้า 1</h4>
+                </div>
+                <div class="review-card">
+                    <p>"วัตถุดิบสดใหม่"</p>
+                    <h4>- ลูกค้า 2</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section bg-light">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <h2>ทักษะของฉัน</h2>
-            <div class="skills-grid">
-                <div class="skill">
-                    <h3>พัฒนาเว็บไซต์</h3>
-                    <p>HTML, CSS, JavaScript, React</p>
-                </div>
-                <div class="skill">
-                    <h3>การเขียนโปรแกรม</h3>
-                    <p>Python, Java, C++</p>
-                </div>
-                <div class="skill">
-                    <h3>การออกแบบ</h3>
-                    <p>Photoshop, Figma, UI/UX</p>
-                </div>
-                <div class="skill">
-                    <h3>ฐานข้อมูล</h3>
-                    <p>MySQL, MongoDB</p>
-                </div>
-            </div>
+            <p>&copy; 2025 อิ่มมี ชาบู บุฟเฟต์</p>
         </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>โครงการ</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <h3>เว็บไซต์พอร์ตโฟลิโอ</h3>
-                    <p>เว็บไซต์ส่วนตัวเพื่อแสดงผลงานและความสำเร็จของฉัน</p>
-                </div>
-                <div class="project">
-                    <h3>แพลตฟอร์มอีคอมเมิร์ซ</h3>
-                    <p>ระบบร้านค้าออนไลน์ที่ออกแบบให้ใช้งานง่ายและรองรับการจัดการแบ็กเอนด์</p>
-                </div>
-                <div class="project">
-                    <h3>ระบบจัดการห้องสมุด</h3>
-                    <p>ระบบสำหรับจัดการหนังสือ สมาชิก และการทำธุรกรรมในห้องสมุด</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="record" class="section bg-light">
-        <div class="container">
-            <h2>ประวัติส่วนตัว</h2>
-            <p>
-                สวัสดีครับ ผมชื่อจิรวัฒน์ วงศ์วัชรอำพน เป็นนักศึกษาสาขาเทคโนโลยีสารสนเทศ ชั้นปีที่ 4 
-                มีความสนใจในด้านการพัฒนาเว็บไซต์และเทคโนโลยีใหม่ๆ ที่สามารถนำมาปรับใช้เพื่อสร้างสรรค์งานและพัฒนาตัวเอง 
-                ผมมีประสบการณ์ทำโครงการต่างๆ เช่น การสร้างระบบจัดการข้อมูล การออกแบบส่วนต่อประสานผู้ใช้ และการพัฒนาเว็บไซต์ด้วยเทคโนโลยีที่หลากหลาย
-            </p>
-            <p>
-                ผมชอบความท้าทายและการเรียนรู้สิ่งใหม่ๆ อยู่เสมอ โดยเฉพาะการแก้ปัญหาและพัฒนาทักษะการเขียนโค้ดให้ดียิ่งขึ้น
-                เป้าหมายในอนาคตของผมคือการเป็นนักพัฒนาซอฟต์แวร์ที่มีความเชี่ยวชาญในด้าน Full-stack และสร้างผลงานที่มีประโยชน์ต่อสังคม
-            </p>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>ติดต่อฉัน</h2>
-            <ul class="contact-list">
-                <li><strong>อีเมล:</strong> cookybyaung@email.com</li>
-                <li><strong>เบอร์โทรศัพท์:</strong> 062-757-5581</li>
-            </ul>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>&copy; 2024 จิรวัฒน์ วงศ์วัชรอำพน. สงวนลิขสิทธิ์</p>
     </footer>
 </body>
 </html>
