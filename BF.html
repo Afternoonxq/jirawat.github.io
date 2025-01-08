@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านบุฟเฟ่ต์</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">เมนูร้านบุฟเฟ่ต์</h1>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>เมนูอาหาร</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>รายการ</th>
+                            <th>ราคา (บาท)</th>
+                            <th>จำนวน</th>
+                        </tr>
+                    </thead>
+                    <tbody id="menu-table">
+                        <tr>
+                            <td>1</td>
+                            <td>น้ำซุป</td>
+                            <td>30</td>
+                            <td><input type="number" class="form-control quantity" data-price="30" min="0" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>หมูสามชั้น</td>
+                            <td>50</td>
+                            <td><input type="number" class="form-control quantity" data-price="50" min="0" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>เนื้อวัว</td>
+                            <td>70</td>
+                            <td><input type="number" class="form-control quantity" data-price="70" min="0" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>ผักรวม</td>
+                            <td>40</td>
+                            <td><input type="number" class="form-control quantity" data-price="40" min="0" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>น้ำอัดลมเติมไม่อั้น</td>
+                            <td>20</td>
+                            <td><input type="number" class="form-control quantity" data-price="20" min="0" value="0"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3>บิล</h3>
+                <div class="border p-3">
+                    <p id="order-summary">ยังไม่มีการเลือกเมนู</p>
+                    <p><strong>ยอดรวมก่อนส่วนลด:</strong> <span id="total-before-discount">0</span> บาท</p>
+                    <p><strong>ส่วนลด:</strong> <span id="discount">0</span> บาท</p>
+                    <p><strong>ยอดรวมสุทธิ:</strong> <span id="net-total">0</span> บาท</p>
+                    <button class="btn btn-primary w-100" id="checkout">ชำระเงิน</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.quantity').forEach(input => {
+            input.addEventListener('input', calculateBill);
+        });
+
+        function calculateBill() {
+            let total = 0;
+            let orderSummary = '';
+            let itemCount = 0;
+
+            document.querySelectorAll('.quantity').forEach(input => {
+                const quantity = parseInt(input.value) || 0;
+                const price = parseFloat(input.getAttribute('data-price'));
+
+                if (quantity > 0) {
+                    total += quantity * price;
+                    const itemName = input.closest('tr').children[1].innerText;
+                    orderSummary += `${itemName} x ${quantity} = ${quantity * price} บาท<br>`;
+                    itemCount += quantity;
+                }
+            });
+
+            const discount = itemCount >= 5 ? total * 0.1 : 0;
+            const netTotal = total - discount;
+
+            document.getElementById('order-summary').innerHTML = orderSummary || 'ยังไม่มีการเลือกเมนู';
+            document.getElementById('total-before-discount').innerText = total.toFixed(2);
+            document.getElementById('discount').innerText = discount.toFixed(2);
+            document.getElementById('net-total').innerText = netTotal.toFixed(2);
+        }
+
+        document.getElementById('checkout').addEventListener('click', () => {
+            const total = document.getElementById('net-total').innerText;
+            if (total > 0) {
+                Swal.fire('ขอบคุณ!', `ยอดรวมของคุณคือ ${total} บาท`, 'success');
+            } else {
+                Swal.fire('ข้อผิดพลาด', 'กรุณาเลือกเมนูอย่างน้อยหนึ่งรายการ', 'error');
+            }
+        });
+    </script>
+</body>
+</html>
